@@ -72,7 +72,8 @@ Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored
 | **Portal Scanner** | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
 | **Batch Processing** | Parallel evaluation with `claude -p` workers |
 | **Dashboard TUI** | Terminal UI to browse, filter, and sort your pipeline |
-| **Human-in-the-Loop** | AI evaluates and recommends, you decide and act. The system never submits an application -- you always have the final call |
+| **Auto-Apply** | Fills application forms via Playwright or ATS APIs (Greenhouse, Lever, Ashby), uploads your tailored PDF, and submits after your confirmation |
+| **Human-in-the-Loop** | AI evaluates, fills forms, and recommends -- but always pauses for your confirmation before submitting. You have the final call |
 | **Pipeline Integrity** | Automated merge, dedup, status normalization, health checks |
 
 ## Quick Start

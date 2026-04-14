@@ -1,6 +1,8 @@
-# Modo: apply — Asistente de Aplicación en Vivo
+# Modo: apply — Asistente de Aplicación en Vivo (Copy-Paste)
 
 Modo interactivo para cuando el candidato está rellenando un formulario de aplicación en Chrome. Lee lo que hay en pantalla, carga el contexto previo de la oferta, y genera respuestas personalizadas para cada pregunta del formulario.
+
+> **Want full automation?** Use `/career-ops auto-apply` instead — it fills forms and uploads your PDF automatically via Playwright, then waits for your confirmation before submitting.
 
 ## Requisitos
 

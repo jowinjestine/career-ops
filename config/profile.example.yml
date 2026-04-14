@@ -69,3 +69,22 @@ location:
   visa_status: "No sponsorship needed"
   # For remote roles outside your country:
   # onsite_availability: "1 week/month in any city"
+
+# Auto-apply configuration
+# When enabled, career-ops will fill and submit application forms automatically
+# after evaluation + PDF generation, with your confirmation before each submit.
+auto_apply:
+  enabled: false               # Set to true to activate auto-apply in the pipeline
+  min_score: 4.0               # Minimum score to trigger auto-apply (1.0-5.0)
+  require_confirmation: true   # Always ask before submitting (STRONGLY recommended)
+  skip_eeo: true               # Never fill demographic/EEO fields (default true)
+  cover_letter: true           # Generate cover letter if form has the field
+  start_date: "2 weeks"        # Default answer for "when can you start"
+  salary_strategy: "midpoint"  # How to answer salary: midpoint, minimum, range, skip
+  max_per_session: 5           # Max applications per session (prevent spray-and-pray)
+  cooldown_minutes: 2          # Wait between submissions to avoid rate limiting
+  # Platforms to use API submission (faster, no browser needed):
+  api_platforms:
+    - greenhouse
+    - lever
+    - ashby

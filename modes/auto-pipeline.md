@@ -65,4 +65,20 @@ Si el score final es >= 4.5, generar borrador de respuestas para el formulario d
 ## Paso 5 — Actualizar Tracker
 Registrar en `data/applications.md` con todas las columnas incluyendo Report y PDF en ✅.
 
+## Paso 6 — Auto-Apply (si score >= threshold y auto_apply habilitado)
+
+Si `config/profile.yml` tiene `auto_apply.enabled: true` Y el score >= `auto_apply.min_score` (default 4.0):
+
+1. **Check prerequisites**: Report exists, PDF generated, draft answers in Section H
+2. **Detect ATS platform** from the URL (Greenhouse, Lever, Ashby → API submit; Workday, BambooHR, custom → Playwright)
+3. **For API-supported platforms**: Run `node auto-apply.mjs --report {NUM} --dry-run` first to preview, then submit
+4. **For Playwright platforms**: Execute the `auto-apply` mode (read `modes/auto-apply.md`) to fill the form
+5. **ALWAYS show the pre-submission summary** and wait for user confirmation before submitting
+6. **After submission**: Update tracker status from `Evaluated` to `Applied`, add note `Auto-applied {date}`
+7. **Suggest next steps**: `/career-ops contacto` for LinkedIn outreach, `/career-ops followup` for follow-up cadence
+
+**If auto_apply is NOT enabled or score is below threshold:**
+- Show the evaluation summary as before
+- Mention: "Auto-apply is available for this offer. Run `/career-ops auto-apply` or enable it in config/profile.yml"
+
 **Si algún paso falla**, continuar con los siguientes y marcar el paso fallido como pendiente en el tracker.

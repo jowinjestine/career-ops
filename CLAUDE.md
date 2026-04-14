@@ -62,9 +62,10 @@ AI-powered job search automation built on Claude Code: pipeline tracking, offer 
 | `followup-cadence.mjs` | Follow-up cadence calculator (JSON output) |
 | `data/follow-ups.md` | Follow-up history tracker |
 | `scan.mjs` | Zero-token portal scanner — hits Greenhouse/Ashby/Lever APIs directly, zero LLM cost |
+| `auto-apply.mjs` | ATS API direct submission (Greenhouse/Lever/Ashby) + manifest generator for Playwright filling |
 | `check-liveness.mjs` | Job posting liveness checker |
 | `liveness-core.mjs` | Shared liveness logic (expired signals win over generic Apply text) |
-| `reports/` | Evaluation reports (format: `{###}-{company-slug}-{YYYY-MM-DD}.md`). Blocks A-F + G (Posting Legitimacy). Header includes `**Legitimacy:** {tier}`. |
+| `reports/` | Evaluation reports (format: `{###}-{company-slug}-{YYYY-MM-DD}.md`). Blocks A-F + G (Posting Legitimacy) + H (Draft Answers). Header includes `**Legitimacy:** {tier}`. |
 
 ### OpenCode Commands
 
@@ -82,7 +83,8 @@ When using [OpenCode](https://opencode.ai), the following slash commands are ava
 | `/career-ops-training` | `/career-ops training` | Evaluate course/cert against goals |
 | `/career-ops-project` | `/career-ops project` | Evaluate portfolio project idea |
 | `/career-ops-tracker` | `/career-ops tracker` | Application status overview |
-| `/career-ops-apply` | `/career-ops apply` | Live application assistant |
+| `/career-ops-apply` | `/career-ops apply` | Live application assistant (copy-paste mode) |
+| `/career-ops-auto-apply` | `/career-ops auto-apply` | Auto-fill and submit applications via Playwright/API |
 | `/career-ops-scan` | `/career-ops scan` | Scan portals for new offers |
 | `/career-ops-batch` | `/career-ops batch` | Batch processing with parallel workers |
 | `/career-ops-patterns` | `/career-ops patterns` | Analyze rejection patterns and improve targeting |
@@ -225,7 +227,8 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 | Evaluates a course/cert | `training` |
 | Evaluates portfolio project | `project` |
 | Asks about application status | `tracker` |
-| Fills out application form | `apply` |
+| Fills out application form (copy-paste) | `apply` |
+| Wants to auto-fill and submit applications | `auto-apply` |
 | Searches for new offers | `scan` |
 | Processes pending URLs | `pipeline` |
 | Batch processes offers | `batch` |
